@@ -16,4 +16,4 @@ Static, responsive corporate site for N-EASE. Open `dist/index.html` for a local
 - Replace the portrait placeholder.
 - Confirm and expand the privacy policy with the final operational contact.
 - Connect the inquiry form backend and add spam protection.
-- Add a production canonical URL and absolute OGP image URL once the public domain is confirmed.
+- Update the canonical and OGP URLs if the site moves to a custom domain.
