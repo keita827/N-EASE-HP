@@ -23,11 +23,11 @@ for (const required of ['<header', '<main', '<footer', '<h1', 'meta name="descri
   if (!(html + css).includes(required)) errors.push(`Required pattern missing: ${required}`);
 }
 
-for (const forbidden of ['PROJECT 40', 'まだまだ、いける。', '40代の景色']) {
+for (const forbidden of ['AttivoONE', 'PROJECT 40', 'まだまだ、いける。', '40代', '社長']) {
   if ((html + css + js).includes(forbidden)) errors.push(`Forbidden copy found: ${forbidden}`);
 }
 
-if (!html.includes('width="606" height="362"')) errors.push('Logo dimensions are missing.');
+if (!html.includes('width="456" height="278"')) errors.push('Logo dimensions are missing.');
 if (!html.includes('fetchpriority="high"')) errors.push('Hero preload priority is missing.');
 if (!css.includes('overflow-x: auto')) errors.push('Mobile acronym overflow handling is missing.');
 
