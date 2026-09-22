@@ -1,0 +1,9 @@
+{
+  "name": "n-ease-corporate-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/validate.mjs --build",
+    "lint": "node scripts/validate.mjs"
+  }
+}
