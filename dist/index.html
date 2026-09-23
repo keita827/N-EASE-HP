@@ -15,10 +15,36 @@
   <link rel="canonical" href="https://n-ease-official-site.keita-abe8271.chatgpt.site/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preload" as="image" href="assets/yamagata-dawn.jpg" fetchpriority="high">
+  <script>
+    (() => {
+      try {
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const played = window.sessionStorage.getItem('neaseIntroPlayed') === 'true';
+        if (!reduced && !played) {
+          document.documentElement.classList.add('intro-pending');
+          window.sessionStorage.setItem('neaseIntroPlayed', 'true');
+          window.__neaseIntroFailSafe = window.setTimeout(() => {
+            document.documentElement.classList.remove('intro-pending', 'intro-running');
+          }, 7000);
+        }
+      } catch (_) {
+        document.documentElement.classList.remove('intro-pending', 'intro-running');
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="styles.css">
   <script src="main.js" defer></script>
 </head>
 <body>
+  <div class="brand-intro" aria-hidden="true" data-brand-intro>
+    <div class="brand-intro-inner">
+      <div class="brand-intro-logo">
+        <img src="assets/n-ease-logo-transparent.png" width="456" height="278" alt="">
+      </div>
+      <p class="brand-intro-title">複雑な業務を、<br class="intro-mobile-break">一つに。</p>
+      <p class="brand-intro-lead">シンプルに。<br class="intro-mobile-break">仕事をもっと早く、もっと楽に。</p>
+    </div>
+  </div>
   <a class="skip-link" href="#main">本文へ移動</a>
   <header class="site-header" data-header>
     <div class="header-inner">

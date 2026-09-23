@@ -29,6 +29,27 @@ img { display: block; max-width: 100%; height: auto; }
 .skip-link:focus { transform: translateY(0); }
 :focus-visible { outline: 3px solid var(--cyan-400); outline-offset: 4px; }
 
+.brand-intro { display: none; }
+html.intro-pending, html.intro-running { overflow: hidden; }
+html.intro-pending .brand-intro,
+html.intro-running .brand-intro { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: 32px; color: #fff; background: radial-gradient(circle at 50% 42%, #0a2850 0%, #04152e 54%, #010914 100%); pointer-events: none; }
+.brand-intro-inner { width: min(760px, 100%); text-align: center; }
+.brand-intro-logo { position: relative; width: clamp(260px, 28vw, 380px); margin: 0 auto 34px; opacity: 0; overflow: hidden; }
+.brand-intro-logo img { width: 100%; height: auto; object-fit: contain; }
+.brand-intro-logo::after { content: ""; position: absolute; inset: -25% auto -25% -45%; width: 22%; background: linear-gradient(90deg, transparent, rgba(92,224,255,.2), transparent); transform: skewX(-18deg); opacity: 0; }
+.brand-intro-title { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(2.25rem, 4.8vw, 4.25rem); line-height: 1.35; letter-spacing: .04em; opacity: 0; transform: translateY(10px); }
+.brand-intro-lead { margin: 20px 0 0; color: rgba(255,255,255,.76); font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(1rem, 1.6vw, 1.3rem); letter-spacing: .1em; opacity: 0; transform: translateY(8px); }
+.intro-mobile-break { display: none; }
+html.intro-running .brand-intro { animation: intro-exit .75s 4.6s var(--ease) forwards; }
+html.intro-running .brand-intro-logo { animation: intro-logo 1.2s .1s var(--ease) forwards; }
+html.intro-running .brand-intro-logo::after { animation: intro-sweep .9s 1.05s ease-out forwards; }
+html.intro-running .brand-intro-title { animation: intro-copy .9s 1.8s var(--ease) forwards; }
+html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--ease) forwards; }
+@keyframes intro-logo { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+@keyframes intro-sweep { 0% { left: -45%; opacity: 0; } 18% { opacity: 1; } 100% { left: 125%; opacity: 0; } }
+@keyframes intro-copy { to { opacity: 1; transform: translateY(0); } }
+@keyframes intro-exit { to { opacity: 0; visibility: hidden; } }
+
 .site-header { position: fixed; z-index: 100; top: 0; left: 0; width: 100%; color: #fff; border-bottom: 1px solid rgba(255,255,255,.14); transition: background .35s ease, box-shadow .35s ease; }
 .site-header.scrolled { background: rgba(4,21,46,.94); box-shadow: 0 12px 32px rgba(0,15,35,.18); backdrop-filter: blur(12px); }
 .header-inner { width: min(calc(100% - 48px), 1400px); height: 88px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
@@ -47,7 +68,7 @@ img { display: block; max-width: 100%; height: auto; }
 .hero-media { background: url("assets/yamagata-dawn.jpg") center 46%/cover no-repeat; transform: scale(1.01); }
 .hero-shade { background: linear-gradient(180deg, rgba(2,16,38,.58) 0%, rgba(3,24,53,.2) 46%, rgba(3,17,37,.42) 100%), linear-gradient(90deg, rgba(1,19,44,.4), rgba(4,24,51,.04) 72%); }
 .hero-inner { position: relative; height: 100%; padding-top: 104px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-.hero-brand { width: clamp(150px, 14vw, 210px); height: clamp(106px, 13vw, 156px); margin: 0 auto 18px; }
+.hero-brand { width: clamp(220px, 20vw, 300px); height: clamp(142px, 17vw, 196px); margin: 0 auto 16px; }
 .hero-brand img { width: 100%; height: 100%; object-fit: contain; }
 .name-meaning { width: min(100%, 1030px); list-style: none; display: grid; grid-template-columns: repeat(5,1fr); margin: 0 auto; padding: 0 0 25px; }
 .name-meaning li { display: flex; align-items: center; justify-content: center; gap: 12px; min-width: 0; padding-inline: clamp(8px,1.5vw,22px); border-right: 1px solid rgba(255,255,255,.42); }
@@ -212,14 +233,15 @@ img { display: block; max-width: 100%; height: auto; }
   .global-nav .nav-cta { margin-top: 24px; padding: 15px 20px; text-align: center; }
   .hero { min-height: 760px; height: 100svh; max-height: 900px; }
   .hero-inner { padding-top: 82px; }
-  .hero-brand { width: 150px; height: 105px; margin-bottom: 10px; }
+  .hero-brand { width: 210px; height: 142px; margin-bottom: 8px; }
   .name-meaning { gap: 0; padding-bottom: 18px; }
   .name-meaning li { gap: 7px; padding-inline: 7px; }
   .name-meaning strong { font-size: 1.25rem; }
   .name-meaning b { font-size: .65rem; }
   .name-meaning small { display: none; }
   .hero-copy { padding-top: 28px; }
-  .hero h1 { font-size: clamp(3rem, 11vw, 5rem); }
+  .hero h1 { font-size: clamp(3rem, 9vw, 4.2rem); }
+  .mobile-title-break { display: block; }
   .service-layout, .case-layout, .about-grid, .message-grid, .company-grid, .contact-grid { grid-template-columns: 1fr; }
   .service-layout, .case-layout { gap: 48px; }
   .service-item { grid-template-columns: 48px 1fr auto; gap: 18px; }
@@ -241,7 +263,7 @@ img { display: block; max-width: 100%; height: auto; }
   .hero-shade { background: linear-gradient(180deg, rgba(2,15,36,.72), rgba(3,19,43,.18) 46%, rgba(3,18,37,.65)); }
   .hero { min-height: 720px; }
   .hero-inner { justify-content: flex-start; padding-top: 92px; }
-  .hero-brand { width: 128px; height: 92px; margin-bottom: 8px; }
+  .hero-brand { width: 174px; height: 116px; margin-bottom: 7px; }
   .name-meaning { width: calc(100% + 10px); margin-inline: -5px; }
   .name-meaning li { flex-direction: column; gap: 3px; }
   .name-meaning strong { font-size: 1.12rem; }
@@ -273,10 +295,17 @@ img { display: block; max-width: 100%; height: auto; }
   .form-row.full, .consent.full, .form-action.full { grid-column: auto; }
   .footer nav { flex-direction: column; }
   .dialog-inner h2 { font-size: 1.7rem; }
+  .brand-intro { padding: 24px; }
+  .brand-intro-logo { width: min(72vw, 280px); margin-bottom: 28px; }
+  .brand-intro-title { font-size: clamp(2rem, 10vw, 2.8rem); }
+  .brand-intro-lead { margin-top: 16px; font-size: .98rem; line-height: 1.9; }
+  .intro-mobile-break { display: block; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
+  .brand-intro { display: none !important; }
+  html.intro-pending, html.intro-running { overflow: auto; }
 }

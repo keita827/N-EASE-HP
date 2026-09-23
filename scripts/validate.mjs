@@ -23,6 +23,10 @@ for (const required of ['<header', '<main', '<footer', '<h1', 'meta name="descri
   if (!(html + css).includes(required)) errors.push(`Required pattern missing: ${required}`);
 }
 
+for (const required of ['data-brand-intro', 'neaseIntroPlayed', 'intro-pending', 'intro-running']) {
+  if (!(html + css + js).includes(required)) errors.push(`Brand intro pattern missing: ${required}`);
+}
+
 for (const forbidden of ['AttivoONE', 'PROJECT 40', 'まだまだ、いける。', '40代', '社長', 'BUSINESS DESIGN / YAMAGATA']) {
   if ((html + css + js).includes(forbidden)) errors.push(`Forbidden copy found: ${forbidden}`);
 }

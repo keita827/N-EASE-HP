@@ -7,6 +7,22 @@
   const dialog = document.querySelector('[data-privacy-dialog]');
   const privacyOpen = document.querySelector('[data-privacy-open]');
   const privacyClose = document.querySelector('[data-privacy-close]');
+  const intro = document.querySelector('[data-brand-intro]');
+
+  if (document.documentElement.classList.contains('intro-pending') && intro) {
+    requestAnimationFrame(() => {
+      document.documentElement.classList.replace('intro-pending', 'intro-running');
+    });
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('intro-pending', 'intro-running');
+      intro.remove();
+      if (window.__neaseIntroFailSafe) window.clearTimeout(window.__neaseIntroFailSafe);
+    }, 5400);
+  } else {
+    intro?.remove();
+    document.documentElement.classList.remove('intro-pending', 'intro-running');
+    if (window.__neaseIntroFailSafe) window.clearTimeout(window.__neaseIntroFailSafe);
+  }
 
   const updateHeader = () => header?.classList.toggle('scrolled', window.scrollY > 24);
   updateHeader();

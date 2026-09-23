@@ -7,6 +7,7 @@ Static, responsive corporate site for N-EASE. Open `dist/index.html` for a local
 - Hero image: `dist/assets/yamagata-dawn.jpg`
 - About image: `dist/assets/about-natural-light.jpg`
 - Official logo: `dist/assets/n-ease-logo-transparent.png` (official supplied artwork with only its black canvas removed)
+- Brand intro: CSS keyframes in `dist/styles.css` with minimal lifecycle handling in `dist/main.js`. It plays once per browser session using the `neaseIntroPlayed` session-storage key and is skipped for reduced-motion users.
 - Case studies: duplicate the `article.case-card` structure and update its text. Keep the homepage cases text-led and leave unverified metrics, client names, and system screenshots out.
 - Contact delivery: connect the `form[data-contact-form]` submit handler in `dist/main.js` to the selected backend before public launch.
 
