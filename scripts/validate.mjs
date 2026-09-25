@@ -31,6 +31,10 @@ for (const required of ['data-case-open="case-01"', 'data-case-open="case-02"', 
   if (!(html + css + js).includes(required)) errors.push(`Case modal pattern missing: ${required}`);
 }
 
+for (const required of ['バラバラだった店舗業務を、一つの仕組みに。', '紙のタイムカードを、シンプルなデジタル打刻へ。', 'OVERVIEW', 'ISSUE', 'SOLUTION', 'SYSTEM', 'RESULT', 'SUPPORT', '同じような業務課題を相談する']) {
+  if (!html.includes(required)) errors.push(`Case modal content missing: ${required}`);
+}
+
 if (/class="case-link"[^>]+href="#contact"/.test(html)) errors.push('Case detail control still links directly to contact.');
 
 for (const forbidden of ['AttivoONE', 'PROJECT 40', 'まだまだ、いける。', '40代', '社長', 'BUSINESS DESIGN / YAMAGATA']) {
