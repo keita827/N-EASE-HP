@@ -210,6 +210,11 @@
       return;
     }
 
+    if (window.location.hostname.endsWith('.chatgpt.site')) {
+      status.textContent = '現在の公開環境ではフォーム送信を利用できません。office@n-ease.comまでご連絡ください。';
+      return;
+    }
+
     const submitButton = form.querySelector('[type="submit"]');
     submitButton.disabled = true;
     submitButton.setAttribute('aria-busy', 'true');

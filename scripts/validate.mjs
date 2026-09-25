@@ -44,7 +44,7 @@ for (const required of ['data-service-open="service-01"', 'data-service-open="se
 
 if (/class="service-link"[^>]+href="#contact"/.test(html)) errors.push('Service detail control still links directly to contact.');
 
-for (const required of ['name="contact"', 'method="POST"', 'data-netlify="true"', 'netlify-honeypot="bot-field"', 'name="form-name" value="contact"', 'name="email" type="email"', "new URLSearchParams(new FormData(form)).toString()", "お問い合わせを受け付けました。", "送信できませんでした。"]) {
+for (const required of ['name="contact"', 'method="POST"', 'data-netlify="true"', 'netlify-honeypot="bot-field"', 'name="form-name" value="contact"', 'name="email" type="email"', "new URLSearchParams(new FormData(form)).toString()", ".endsWith('.chatgpt.site')", "お問い合わせを受け付けました。", "送信できませんでした。"]) {
   if (!(html + js).includes(required)) errors.push(`Contact form pattern missing: ${required}`);
 }
 
