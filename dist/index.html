@@ -129,7 +129,7 @@
               <h3>業務改善<br>コンサルティング</h3>
             </div>
             <p class="service-description">現状の業務を整理・分析し、ムダや二重作業、属人化などの課題を発見。よりシンプルに仕事が回る仕組みづくりを支援します。</p>
-            <a class="service-link" href="#contact" aria-label="業務改善コンサルティングを詳しく見る">詳しく見る <span aria-hidden="true">→</span></a>
+            <button class="service-link" type="button" data-service-open="service-01" aria-haspopup="dialog" aria-controls="service-01-dialog" aria-label="業務改善コンサルティングを詳しく見る">詳しく見る <span aria-hidden="true">→</span></button>
           </article>
           <article class="service-item">
             <p class="service-number">02</p>
@@ -138,7 +138,7 @@
               <h3>システム開発・<br>カスタマイズ</h3>
             </div>
             <p class="service-description">既存サービスでは対応しきれない業務に対して、企業ごとの実務に合わせたシステムを構築します。</p>
-            <a class="service-link" href="#contact" aria-label="システム開発・カスタマイズを詳しく見る">詳しく見る <span aria-hidden="true">→</span></a>
+            <button class="service-link" type="button" data-service-open="service-02" aria-haspopup="dialog" aria-controls="service-02-dialog" aria-label="システム開発・カスタマイズを詳しく見る">詳しく見る <span aria-hidden="true">→</span></button>
           </article>
           <article class="service-item">
             <p class="service-number">03</p>
@@ -147,7 +147,7 @@
               <h3>導入支援・<br>運用サポート</h3>
             </div>
             <p class="service-description">システムを作って終わりではなく、実際に現場で使える状態まで導入を支援。運用開始後も継続的に改善します。</p>
-            <a class="service-link" href="#contact" aria-label="導入支援・運用サポートを詳しく見る">詳しく見る <span aria-hidden="true">→</span></a>
+            <button class="service-link" type="button" data-service-open="service-03" aria-haspopup="dialog" aria-controls="service-03-dialog" aria-label="導入支援・運用サポートを詳しく見る">詳しく見る <span aria-hidden="true">→</span></button>
           </article>
         </div>
       </div>
@@ -243,7 +243,10 @@
           </ul>
           <p class="contact-closing">そんな段階からご相談いただけます。<br>お問い合わせ：<a href="mailto:office@n-ease.com">office@n-ease.com</a></p>
         </div>
-        <form class="contact-form reveal" data-contact-form novalidate>
+        <form class="contact-form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-contact-form novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <input type="hidden" name="subject" value="N-EASE公式サイトからのお問い合わせ">
+          <p class="form-honeypot" aria-hidden="true"><label>この項目は入力しないでください<input name="bot-field" type="text" tabindex="-1" autocomplete="off"></label></p>
           <div class="form-row">
             <label for="company-name">会社名 <span>必須</span></label>
             <input id="company-name" name="company" type="text" autocomplete="organization" required>
@@ -265,7 +268,7 @@
             <textarea id="message" name="message" rows="6" required></textarea>
           </div>
           <label class="consent full">
-            <input name="privacy" type="checkbox" required>
+            <input name="privacy" type="checkbox" value="同意済み" required>
             <span><button type="button" class="text-button" data-privacy-open>プライバシーポリシー</button>に同意する</span>
           </label>
           <div class="form-action full">
@@ -288,6 +291,63 @@
       <p class="copyright">© 2026 N-EASE</p>
     </div>
   </footer>
+
+  <dialog class="case-detail-dialog" id="service-01-dialog" data-service-dialog="service-01" role="dialog" aria-labelledby="service-01-title" aria-describedby="service-01-lead" aria-modal="true">
+    <div class="case-dialog-panel">
+      <button class="case-dialog-close" type="button" aria-label="サービス詳細を閉じる" data-service-close>×</button>
+      <header class="case-dialog-header">
+        <p class="case-dialog-index">SERVICE 01 <span>CONSULTING</span></p>
+        <h2 id="service-01-title">業務改善コンサルティング</h2>
+        <p class="case-dialog-lead" id="service-01-lead">業務を整理し、本当に改善すべき課題を見つける。</p>
+      </header>
+      <div class="case-dialog-flow">
+        <section><h3><span>OVERVIEW</span>概要</h3><div><p>日々の業務には、「昔からこの方法だから」「Excelで管理しているから」「担当者しか分からないから」といった理由で、そのまま続いている作業が数多くあります。</p><p>N-EASEでは、いきなりシステムを導入するのではなく、まず現在の業務を整理し、どこに時間や手間がかかっているのかを確認します。</p></div></section>
+        <section><h3><span>ISSUE</span>課題</h3><div><p>業務改善では、目に見えている作業だけを効率化しても、根本的な課題が別の場所に残ることがあります。</p><p>複数のExcelへの入力、紙とデジタルの二重管理、担当者ごとに異なる作業方法、情報を探す時間、同じ内容の繰り返し入力など、実際の業務フローを確認しながら改善すべきポイントを整理します。</p></div></section>
+        <section><h3><span>SOLUTION</span>改善内容</h3><div><p>現場へのヒアリングをもとに、現在の業務フローを整理・分析します。</p><p>そのうえで、次の作業を切り分け、企業ごとの業務に合った改善方法を提案します。</p><ul class="service-point-list"><li>なくせる作業</li><li>まとめられる作業</li><li>自動化できる作業</li><li>システム化した方がよい作業</li><li>現在の方法を残した方がよい作業</li></ul></div></section>
+        <section><h3><span>POLICY</span>方針</h3><div><p>大規模なDXやシステム導入を最初から前提にはしません。</p><p>既存のExcelを整理するだけで解決できる場合もあれば、小さな仕組みを追加するだけで大きく業務が変わる場合もあります。</p><p>N-EASEは、「何を導入するか」ではなく、「どうすれば仕事がシンプルになるか」という視点から業務改善を考えます。</p></div></section>
+        <section><h3><span>SUPPORT</span>支援範囲</h3><div><p class="case-support-list">業務ヒアリング <i>／</i> 現状分析 <i>／</i> 課題整理 <i>／</i> 業務フロー整理 <i>／</i> 改善提案 <i>／</i> DX・システム化検討</p></div></section>
+      </div>
+      <footer class="case-dialog-footer"><button class="case-dialog-cta" type="button" data-service-contact>業務改善について相談する <span aria-hidden="true">→</span></button></footer>
+    </div>
+  </dialog>
+
+  <dialog class="case-detail-dialog" id="service-02-dialog" data-service-dialog="service-02" role="dialog" aria-labelledby="service-02-title" aria-describedby="service-02-lead" aria-modal="true">
+    <div class="case-dialog-panel">
+      <button class="case-dialog-close" type="button" aria-label="サービス詳細を閉じる" data-service-close>×</button>
+      <header class="case-dialog-header">
+        <p class="case-dialog-index">SERVICE 02 <span>DEVELOPMENT</span></p>
+        <h2 id="service-02-title">システム開発・カスタマイズ</h2>
+        <p class="case-dialog-lead" id="service-02-lead">業務に合わせて、必要な仕組みだけをつくる。</p>
+      </header>
+      <div class="case-dialog-flow">
+        <section><h3><span>OVERVIEW</span>概要</h3><div><p>既存のシステムでは機能が多すぎる。自社の業務に合わない。Excelでは管理が難しくなってきた。</p><p>N-EASEでは、実際の業務に合わせて必要な機能を整理し、現場で使いやすい業務システムを設計・開発します。</p></div></section>
+        <section><h3><span>ISSUE</span>課題</h3><div><p>業務システムは、機能が多ければ使いやすいとは限りません。</p><p>必要のない機能や複雑な操作が増えることで、かえって現場の負担になる場合もあります。</p><p>そのため、システムを作る前に「誰が、いつ、何のために使うのか」を整理することを重視します。</p></div></section>
+        <section><h3><span>SOLUTION</span>改善内容</h3><div><p>実際の業務フローを確認し、必要な機能を絞り込んだうえで設計します。</p><p>例えば、次のような企業ごとの課題に合わせた仕組みを構築します。</p><ul class="service-point-list"><li>Excel管理のシステム化</li><li>情報の一元管理</li><li>データ検索</li><li>入力作業の効率化</li><li>集計の自動化</li><li>出退勤などの記録</li><li>店舗業務の管理</li></ul></div></section>
+        <section><h3><span>POLICY</span>方針</h3><div><p>既製サービスへ業務を無理に合わせるのではなく、現在の業務を理解したうえで必要な仕組みを考えます。</p><p>同時に、本当にシステム開発が必要なのかも検討します。</p><p>既存ツールや現在の環境を活用した方が合理的な場合には、その方法も含めて提案します。</p></div></section>
+        <section><h3><span>SUPPORT</span>支援範囲</h3><div><p class="case-support-list">業務ヒアリング <i>／</i> 要件整理 <i>／</i> システム設計 <i>／</i> 開発 <i>／</i> カスタマイズ <i>／</i> 導入支援</p></div></section>
+      </div>
+      <footer class="case-dialog-footer"><button class="case-dialog-cta" type="button" data-service-contact>システム開発について相談する <span aria-hidden="true">→</span></button></footer>
+    </div>
+  </dialog>
+
+  <dialog class="case-detail-dialog" id="service-03-dialog" data-service-dialog="service-03" role="dialog" aria-labelledby="service-03-title" aria-describedby="service-03-lead" aria-modal="true">
+    <div class="case-dialog-panel">
+      <button class="case-dialog-close" type="button" aria-label="サービス詳細を閉じる" data-service-close>×</button>
+      <header class="case-dialog-header">
+        <p class="case-dialog-index">SERVICE 03 <span>SUPPORT</span></p>
+        <h2 id="service-03-title">導入支援・運用サポート</h2>
+        <p class="case-dialog-lead" id="service-03-lead">導入して終わりではなく、現場で使えるところまで。</p>
+      </header>
+      <div class="case-dialog-flow">
+        <section><h3><span>OVERVIEW</span>概要</h3><div><p>新しい仕組みやシステムは、導入しただけでは業務改善になりません。</p><p>実際に現場で使われ、日常業務の中に定着して初めて改善につながります。</p><p>N-EASEでは、導入後の運用まで含めてサポートします。</p></div></section>
+        <section><h3><span>ISSUE</span>課題</h3><div><p>システム導入後には、「使い方が分からない」「実際に使うと別の課題が見つかった」「運用方法を少し変更したい」といった問題が発生することがあります。</p><p>設計段階では分からなかった課題が、実際の運用から見えてくることもあります。</p></div></section>
+        <section><h3><span>SOLUTION</span>改善内容</h3><div><p>導入時の設定や運用方法を確認し、現場で使用できる状態まで支援します。</p><p>また、実際の利用状況を確認しながら必要に応じて運用方法や仕組みを改善します。</p></div></section>
+        <section><h3><span>POLICY</span>方針</h3><div><p>完成したシステムを渡して終了ではなく、実際の業務の中で使えることを重視します。</p><p>小さな改善を繰り返しながら、現場に合った仕組みへ育てていくことも業務改善の一部だと考えています。</p></div></section>
+        <section><h3><span>SUPPORT</span>支援範囲</h3><div><p class="case-support-list">導入支援 <i>／</i> 初期設定 <i>／</i> 運用確認 <i>／</i> 操作支援 <i>／</i> 改善提案 <i>／</i> 継続サポート</p></div></section>
+      </div>
+      <footer class="case-dialog-footer"><button class="case-dialog-cta" type="button" data-service-contact>導入・運用について相談する <span aria-hidden="true">→</span></button></footer>
+    </div>
+  </dialog>
 
   <dialog class="case-detail-dialog" id="case-01-dialog" data-case-dialog="case-01" aria-labelledby="case-01-title" aria-describedby="case-01-summary" aria-modal="true">
     <div class="case-dialog-panel">

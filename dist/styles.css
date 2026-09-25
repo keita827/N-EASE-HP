@@ -117,9 +117,10 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .service-en { margin: 0 0 8px; color: var(--blue-600); font-family: Arial, sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .18em; }
 .service-item h3 { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(1.05rem, 1.35vw, 1.35rem); font-weight: 600; line-height: 1.45; }
 .service-description { max-width: 600px; margin: 0; color: var(--muted); }
-.service-link { justify-self: end; padding-block: 6px; color: var(--navy-900); font-size: .78rem; font-weight: 700; border-bottom: 1px solid #8ea1b5; transition: color .2s, border-color .2s; }
+.service-link { justify-self: end; padding: 6px 0; border: 0; border-bottom: 1px solid #8ea1b5; color: var(--navy-900); background: transparent; font-size: .78rem; font-weight: 700; cursor: pointer; transition: color .2s, border-color .2s; }
 .service-link span { margin-left: 10px; color: var(--blue-600); }
 .service-link:hover { color: var(--blue-600); border-color: var(--blue-600); }
+.service-link:focus-visible { outline: 2px solid var(--blue-600); outline-offset: 5px; }
 
 .case-section { position: relative; background: #eef5fa; overflow: hidden; }
 .case-layout { display: grid; grid-template-columns: minmax(210px,.52fr) 1.48fr; gap: clamp(58px,8vw,120px); }
@@ -187,6 +188,7 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .button-submit { width: 100%; color: #fff; background: var(--blue-700); }
 .button-submit:hover { background: var(--navy-900); }
 .form-status { min-height: 1.75em; margin: 10px 0 0; color: var(--blue-700); font-size: .83rem; }
+.form-honeypot { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
 
 .footer { padding: 44px 0 30px; color: #fff; background: #020e20; }
 .footer-grid { display: grid; grid-template-columns: 220px 1fr auto; gap: 50px; align-items: center; }
@@ -208,6 +210,7 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .case-dialog-close:focus-visible, .case-dialog-cta:focus-visible { outline: 2px solid var(--blue-600); outline-offset: 4px; }
 .case-dialog-header { padding-right: 72px; padding-bottom: clamp(30px,4vw,42px); border-bottom: 1px solid #b9c7d6; }
 .case-dialog-index { margin: 0 0 12px; color: var(--blue-600); font-family: Arial,sans-serif; font-size: .74rem; font-weight: 700; letter-spacing: .18em; }
+.case-dialog-index span { margin-left: 12px; color: var(--navy-900); font-size: .66rem; letter-spacing: .14em; }
 .case-dialog-header h2 { margin: 0 0 16px; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(1.8rem,3vw,2.5rem); font-weight: 500; line-height: 1.4; }
 .case-dialog-lead { max-width: 750px; margin: 0; color: var(--navy-900); font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(1rem,1.7vw,1.18rem); line-height: 1.8; }
 .case-dialog-flow section { display: grid; grid-template-columns: 170px minmax(0,1fr); gap: clamp(24px,4vw,52px); padding: clamp(27px,3.7vw,38px) 0; border-bottom: 1px solid #d3dde7; }
@@ -216,6 +219,9 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .case-dialog-flow section div { max-width: 570px; }
 .case-dialog-flow section div p { margin: 0 0 13px; color: var(--muted); font-size: .9rem; line-height: 1.95; }
 .case-dialog-flow section div p:last-child { margin-bottom: 0; }
+.service-point-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px 20px; margin: 18px 0 0; padding: 0; list-style: none; }
+.service-point-list li { position: relative; padding-left: 15px; color: var(--muted); font-size: .88rem; line-height: 1.7; }
+.service-point-list li::before { content: ""; position: absolute; top: .75em; left: 0; width: 5px; height: 1px; background: var(--blue-600); }
 .case-support-list { color: var(--navy-900) !important; font-weight: 600; }
 .case-support-list i { color: var(--blue-600); font-style: normal; font-weight: 400; }
 .case-dialog-footer { display: flex; justify-content: flex-end; padding-top: clamp(30px,4vw,42px); }
@@ -325,6 +331,7 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
   .case-dialog-flow h3 { font-size: 1rem; }
   .case-dialog-flow h3 span { display: inline-block; min-width: 100px; margin: 0 10px 0 0; }
   .case-dialog-flow section div p { font-size: .86rem; line-height: 1.9; }
+  .service-point-list { grid-template-columns: 1fr; gap: 6px; }
   .case-dialog-footer { align-items: stretch; flex-direction: column; gap: 20px; padding-top: 28px; }
   .case-dialog-cta { width: 100%; min-height: 58px; }
   .about { min-height: 760px; padding-bottom: 250px; }

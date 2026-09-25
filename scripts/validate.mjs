@@ -5,6 +5,7 @@ const root = process.cwd();
 const html = readFileSync(join(root, 'dist', 'index.html'), 'utf8');
 const css = readFileSync(join(root, 'dist', 'styles.css'), 'utf8');
 const js = readFileSync(join(root, 'dist', 'main.js'), 'utf8');
+const netlifyConfig = readFileSync(join(root, 'netlify.toml'), 'utf8');
 const errors = [];
 
 const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
@@ -36,6 +37,18 @@ for (const required of ['バラバラだった店舗業務を、一つの仕組�
 }
 
 if (/class="case-link"[^>]+href="#contact"/.test(html)) errors.push('Case detail control still links directly to contact.');
+
+for (const required of ['data-service-open="service-01"', 'data-service-open="service-02"', 'data-service-open="service-03"', 'data-service-dialog="service-01"', 'data-service-dialog="service-02"', 'data-service-dialog="service-03"', 'role="dialog"', 'data-service-contact', '業務改善について相談する', 'システム開発について相談する', '導入・運用について相談する']) {
+  if (!(html + js).includes(required)) errors.push(`Service modal pattern missing: ${required}`);
+}
+
+if (/class="service-link"[^>]+href="#contact"/.test(html)) errors.push('Service detail control still links directly to contact.');
+
+for (const required of ['name="contact"', 'method="POST"', 'data-netlify="true"', 'netlify-honeypot="bot-field"', 'name="form-name" value="contact"', 'name="email" type="email"', "new URLSearchParams(new FormData(form)).toString()", "お問い合わせを受け付けました。", "送信できませんでした。"]) {
+  if (!(html + js).includes(required)) errors.push(`Contact form pattern missing: ${required}`);
+}
+
+if (!netlifyConfig.includes('publish = "dist"')) errors.push('Netlify publish directory must be dist.');
 
 for (const forbidden of ['AttivoONE', 'PROJECT 40', 'まだまだ、いける。', '40代', '社長', 'BUSINESS DESIGN / YAMAGATA']) {
   if ((html + css + js).includes(forbidden)) errors.push(`Forbidden copy found: ${forbidden}`);
