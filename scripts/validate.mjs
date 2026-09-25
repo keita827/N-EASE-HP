@@ -27,6 +27,12 @@ for (const required of ['data-brand-intro', 'neaseIntroPlayed', 'intro-pending',
   if (!(html + css + js).includes(required)) errors.push(`Brand intro pattern missing: ${required}`);
 }
 
+for (const required of ['data-case-open="case-01"', 'data-case-open="case-02"', 'data-case-dialog="case-01"', 'data-case-dialog="case-02"', 'data-case-contact', 'aria-modal="true"', 'case-dialog-open', 'event.key !== \'Tab\'', "event.preventDefault()", "scrollIntoView"]) {
+  if (!(html + css + js).includes(required)) errors.push(`Case modal pattern missing: ${required}`);
+}
+
+if (/class="case-link"[^>]+href="#contact"/.test(html)) errors.push('Case detail control still links directly to contact.');
+
 for (const forbidden of ['AttivoONE', 'PROJECT 40', 'まだまだ、いける。', '40代', '社長', 'BUSINESS DESIGN / YAMAGATA']) {
   if ((html + css + js).includes(forbidden)) errors.push(`Forbidden copy found: ${forbidden}`);
 }

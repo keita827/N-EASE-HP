@@ -19,7 +19,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--white); font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
-body.menu-open { overflow: hidden; }
+body.menu-open, body.case-dialog-open { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
 button, input, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -131,8 +131,9 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .case-index { margin: 0 0 14px; color: var(--blue-600); font-family: Arial,sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .16em; }
 .case-card h3 { margin: 0 0 14px; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(1.25rem,1.8vw,1.65rem); line-height: 1.5; }
 .case-card > p:not(.case-index) { margin: 0 0 28px; color: var(--muted); font-size: .9rem; }
-.case-link { display: inline-flex; align-self: flex-start; gap: 24px; margin-top: auto; padding-bottom: 6px; color: var(--navy-900); font-size: .78rem; font-weight: 700; border-bottom: 1px solid #8ea1b5; }
+.case-link { display: inline-flex; align-self: flex-start; gap: 24px; margin-top: auto; padding: 0 0 6px; border: 0; border-bottom: 1px solid #8ea1b5; color: var(--navy-900); background: transparent; font-size: .78rem; font-weight: 700; cursor: pointer; }
 .case-link span { color: var(--blue-600); }
+.case-link:focus-visible { outline: 2px solid var(--blue-600); outline-offset: 5px; }
 
 .about { position: relative; min-height: 660px; background: #fff; overflow: hidden; }
 .about-visual { position: absolute; inset: 0 0 0 38%; background: url("assets/about-natural-light.jpg") right center/cover no-repeat; }
@@ -194,6 +195,32 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 28px; font-size: .78rem; }
 .footer nav a:hover { color: var(--cyan-400); }
 .copyright { margin: 0; color: rgba(255,255,255,.55); font-size: .72rem; }
+
+.case-detail-dialog { width: min(920px, calc(100% - 40px)); max-height: min(88vh, 900px); padding: 0; border: 0; border-radius: 4px; color: var(--ink); background: #fff; box-shadow: 0 20px 50px rgba(0,18,45,.12); opacity: 0; overflow-x: hidden; overflow-y: auto; transform: translateY(16px); transition: opacity .2s var(--ease), transform .2s var(--ease); }
+.case-detail-dialog::backdrop { background: rgba(2,15,36,.72); opacity: 0; transition: opacity .2s var(--ease); }
+.case-detail-dialog.is-open { opacity: 1; transform: translateY(0); }
+.case-detail-dialog.is-open::backdrop { opacity: 1; }
+.case-detail-dialog.is-closing { opacity: 0; transform: translateY(10px); }
+.case-detail-dialog.is-closing::backdrop { opacity: 0; }
+.case-dialog-panel { position: relative; padding: clamp(36px,6vw,70px) clamp(28px,6vw,72px) clamp(38px,6vw,68px); }
+.case-dialog-close { position: sticky; z-index: 2; top: 16px; float: right; display: grid; width: 44px; height: 44px; margin: -18px -20px 0 20px; padding: 0; place-items: center; border: 1px solid #c7d2de; border-radius: 50%; color: var(--navy-900); background: rgba(255,255,255,.96); font-size: 1.45rem; line-height: 1; cursor: pointer; }
+.case-dialog-close:hover { border-color: var(--blue-600); color: var(--blue-600); }
+.case-dialog-close:focus-visible, .case-dialog-cta:focus-visible { outline: 2px solid var(--blue-600); outline-offset: 4px; }
+.case-dialog-header { padding-right: 72px; padding-bottom: clamp(30px,4vw,42px); border-bottom: 1px solid #b9c7d6; }
+.case-dialog-index { margin: 0 0 12px; color: var(--blue-600); font-family: Arial,sans-serif; font-size: .74rem; font-weight: 700; letter-spacing: .18em; }
+.case-dialog-header h2 { margin: 0 0 18px; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(1.8rem,3.4vw,2.8rem); font-weight: 500; line-height: 1.4; }
+.case-dialog-header > p:last-child { max-width: 750px; margin: 0; color: var(--muted); font-size: .94rem; line-height: 1.9; }
+.case-dialog-flow { counter-reset: case-flow; }
+.case-dialog-flow section { display: grid; grid-template-columns: 50px 150px 1fr; gap: 20px; padding: clamp(23px,3.2vw,32px) 0; border-bottom: 1px solid #d3dde7; }
+.case-dialog-flow section > p { margin: 2px 0 0; color: var(--blue-600); font-family: Arial,sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .12em; }
+.case-dialog-flow section > div { display: contents; }
+.case-dialog-flow h3 { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: 1.06rem; font-weight: 600; line-height: 1.6; }
+.case-dialog-flow section div p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.9; }
+.case-dialog-footer { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding-top: clamp(30px,4vw,42px); }
+.case-dialog-footer > p { max-width: 420px; margin: 0; color: var(--muted); font-size: .82rem; }
+.case-dialog-cta { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 28px; min-height: 56px; padding: 14px 24px; border: 1px solid var(--navy-900); border-radius: 2px; color: #fff; background: var(--navy-900); font-size: .82rem; font-weight: 700; cursor: pointer; transition: border-color .2s, background .2s; }
+.case-dialog-cta:hover { border-color: var(--blue-600); background: var(--blue-600); }
+.case-dialog-cta span { color: var(--cyan-400); }
 
 .privacy-dialog { width: min(620px, calc(100% - 32px)); max-height: 85vh; padding: 0; border: 0; color: var(--ink); }
 .privacy-dialog::backdrop { background: rgba(0,10,25,.72); backdrop-filter: blur(4px); }
@@ -287,6 +314,19 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
   .service-link { grid-column: 2; }
   .case-list { grid-template-columns: 1fr; }
   .case-card { min-height: 0; }
+  .case-detail-dialog { width: calc(100% - 16px); max-height: calc(100dvh - 16px); }
+  .case-dialog-panel { padding: 24px 20px 28px; }
+  .case-dialog-close { top: 10px; width: 42px; height: 42px; margin: -10px -8px 0 14px; }
+  .case-dialog-header { padding-right: 48px; padding-bottom: 28px; }
+  .case-dialog-header h2 { margin-bottom: 14px; font-size: 1.75rem; }
+  .case-dialog-header > p:last-child { font-size: .88rem; line-height: 1.85; }
+  .case-dialog-flow section { grid-template-columns: 36px 1fr; gap: 4px 12px; padding: 22px 0; }
+  .case-dialog-flow section > p { grid-row: 1 / 3; }
+  .case-dialog-flow section > div { display: block; }
+  .case-dialog-flow h3 { margin-bottom: 7px; font-size: 1rem; }
+  .case-dialog-flow section div p { font-size: .86rem; }
+  .case-dialog-footer { align-items: stretch; flex-direction: column; gap: 20px; padding-top: 28px; }
+  .case-dialog-cta { width: 100%; min-height: 58px; }
   .about { min-height: 760px; padding-bottom: 250px; }
   .about-visual { inset: auto 0 0 25%; height: 390px; }
   .about-visual::after { background: linear-gradient(180deg,#fff 0%,rgba(255,255,255,.35) 34%,rgba(255,255,255,0) 70%); }
@@ -308,4 +348,5 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
   .reveal { opacity: 1; transform: none; }
   .brand-intro { display: none !important; }
   html.intro-pending, html.intro-running { overflow: auto; }
+  .case-detail-dialog, .case-detail-dialog::backdrop { transition: none; }
 }

@@ -8,6 +8,9 @@
   const privacyOpen = document.querySelector('[data-privacy-open]');
   const privacyClose = document.querySelector('[data-privacy-close]');
   const intro = document.querySelector('[data-brand-intro]');
+  const caseTriggers = document.querySelectorAll('[data-case-open]');
+  const caseDialogs = document.querySelectorAll('[data-case-dialog]');
+  let lastCaseTrigger = null;
 
   if (document.documentElement.classList.contains('intro-pending') && intro) {
     requestAnimationFrame(() => {
@@ -63,6 +66,73 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
     revealItems.forEach((item) => observer.observe(item));
   }
+
+  const getFocusableItems = (container) => [...container.querySelectorAll(
+    'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )].filter((item) => !item.hidden && item.getClientRects().length);
+
+  const closeCaseDialog = (caseDialog, { restoreFocus = true, afterClose } = {}) => {
+    if (!caseDialog?.open || caseDialog.classList.contains('is-closing')) return;
+    caseDialog.classList.remove('is-open');
+    caseDialog.classList.add('is-closing');
+
+    window.setTimeout(() => {
+      caseDialog.close();
+      caseDialog.classList.remove('is-closing');
+      document.body.classList.remove('case-dialog-open');
+      if (restoreFocus) lastCaseTrigger?.focus();
+      afterClose?.();
+    }, reduceMotion ? 0 : 210);
+  };
+
+  caseTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const caseDialog = document.querySelector(`[data-case-dialog="${trigger.dataset.caseOpen}"]`);
+      if (!caseDialog) return;
+      lastCaseTrigger = trigger;
+      document.body.classList.add('case-dialog-open');
+      caseDialog.showModal();
+      requestAnimationFrame(() => {
+        caseDialog.classList.add('is-open');
+        caseDialog.querySelector('[data-case-close]')?.focus();
+      });
+    });
+  });
+
+  caseDialogs.forEach((caseDialog) => {
+    caseDialog.querySelector('[data-case-close]')?.addEventListener('click', () => closeCaseDialog(caseDialog));
+
+    caseDialog.addEventListener('click', (event) => {
+      if (event.target === caseDialog) closeCaseDialog(caseDialog);
+    });
+
+    caseDialog.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      closeCaseDialog(caseDialog);
+    });
+
+    caseDialog.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') return;
+      const focusableItems = getFocusableItems(caseDialog);
+      if (!focusableItems.length) return;
+      const firstItem = focusableItems[0];
+      const lastItem = focusableItems[focusableItems.length - 1];
+      if (event.shiftKey && document.activeElement === firstItem) {
+        event.preventDefault();
+        lastItem.focus();
+      } else if (!event.shiftKey && document.activeElement === lastItem) {
+        event.preventDefault();
+        firstItem.focus();
+      }
+    });
+
+    caseDialog.querySelector('[data-case-contact]')?.addEventListener('click', () => {
+      closeCaseDialog(caseDialog, {
+        restoreFocus: false,
+        afterClose: () => document.querySelector('#contact')?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' })
+      });
+    });
+  });
 
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
