@@ -225,6 +225,8 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .case-support-list { color: var(--navy-900) !important; font-weight: 600; }
 .case-support-list i { color: var(--blue-600); font-style: normal; font-weight: 400; }
 .case-dialog-footer { display: flex; justify-content: flex-end; padding-top: clamp(30px,4vw,42px); }
+.case-dialog-detail-link { display: inline-flex; align-items: center; gap: 18px; margin-right: auto; color: var(--navy-900); font-size: .82rem; font-weight: 700; text-decoration: underline; text-decoration-color: var(--cyan-400); text-underline-offset: 6px; }
+.case-dialog-detail-link:hover { color: var(--blue-600); }
 .case-dialog-cta { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 28px; min-height: 56px; padding: 14px 24px; border: 1px solid var(--navy-900); border-radius: 2px; color: #fff; background: var(--navy-900); font-size: .82rem; font-weight: 700; cursor: pointer; transition: border-color .2s, background .2s; }
 .case-dialog-cta:hover { border-color: var(--blue-600); background: var(--blue-600); }
 .case-dialog-cta span { color: var(--cyan-400); }
