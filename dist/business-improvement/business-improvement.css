@@ -16,6 +16,8 @@
 .bi-button { display: inline-flex; min-width: 285px; min-height: 60px; align-items: center; justify-content: space-between; gap: 36px; margin-top: 24px; padding: 15px 24px; color: #fff; background: var(--navy-900); font-size: .88rem; font-weight: 700; transition: background .25s,transform .25s; }
 .bi-button:hover { background: var(--blue-600); transform: translateY(-2px); }
 .bi-button span { color: var(--cyan-400); }
+.bi-related-link { display: inline-flex; gap: 15px; align-items: center; margin-top: 35px; color: var(--blue-600); font-size: .9rem; font-weight: 700; text-decoration: underline; text-decoration-color: var(--cyan-400); text-underline-offset: 7px; }
+.bi-related-link:hover { color: var(--navy-900); }
 .bi-section { padding-block: clamp(90px,11vw,160px); }
 .bi-two-column,.bi-editorial { display: grid; grid-template-columns: minmax(240px,.75fr) minmax(0,1.25fr); gap: clamp(60px,9vw,140px); }
 .bi-section-heading h2,.capability h2,.bi-area h2,.bi-final h2 { margin: 0; font-family: "Yu Mincho","Hiragino Mincho ProN",serif; font-size: clamp(2.15rem,4vw,4.25rem); font-weight: 500; line-height: 1.45; letter-spacing: -.03em; }
