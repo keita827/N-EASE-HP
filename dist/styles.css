@@ -104,6 +104,12 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .value h2 { margin: 15px 0 6px; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: 1.22rem; font-weight: 700; letter-spacing: .03em; }
 .value > p:last-child { margin: 0; color: var(--muted); font-size: .86rem; }
 
+.regional-intro { background: #fff; }
+.regional-intro-inner { display: grid; grid-template-columns: minmax(180px,.42fr) minmax(0,1.58fr); gap: clamp(36px,7vw,100px); align-items: start; padding-block: 34px 42px; border-top: 1px solid var(--line); }
+.regional-intro p { margin: 0; }
+.regional-intro-label { color: var(--blue-600); font-family: Arial,sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .18em; }
+.regional-intro-inner > p:last-child { max-width: 850px; color: var(--muted); font-size: .92rem; line-height: 1.9; }
+
 .section { padding-block: var(--section); }
 .section-heading h2, .service h2, .case-section h2, .about h2, .message h2, .company h2, .contact h2 { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(2.25rem, 4.2vw, 4.4rem); font-weight: 500; line-height: 1.35; letter-spacing: -.025em; }
 .service { background: #f8fafc; }
@@ -116,8 +122,10 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .service-number { margin: 0; color: var(--blue-600); font-family: Arial, sans-serif; font-size: .78rem; font-weight: 700; letter-spacing: .14em; }
 .service-en { margin: 0 0 8px; color: var(--blue-600); font-family: Arial, sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .18em; }
 .service-item h3 { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(1.05rem, 1.35vw, 1.35rem); font-weight: 600; line-height: 1.45; }
+.service-title-link { transition: color .2s; }
+.service-title-link:hover { color: var(--blue-600); }
 .service-description { max-width: 600px; margin: 0; color: var(--muted); }
-.service-link { justify-self: end; padding: 6px 0; border: 0; border-bottom: 1px solid #8ea1b5; color: var(--navy-900); background: transparent; font-size: .78rem; font-weight: 700; cursor: pointer; transition: color .2s, border-color .2s; }
+.service-link { display: inline-flex; min-height: 44px; align-items: center; justify-self: end; padding: 8px 0; border: 0; border-bottom: 1px solid #8ea1b5; color: var(--navy-900); background: transparent; font-size: .78rem; font-weight: 700; cursor: pointer; transition: color .2s, border-color .2s; }
 .service-link span { margin-left: 10px; color: var(--blue-600); }
 .service-link:hover { color: var(--blue-600); border-color: var(--blue-600); }
 .service-link:focus-visible { outline: 2px solid var(--blue-600); outline-offset: 5px; }
@@ -132,7 +140,7 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .case-index { margin: 0 0 14px; color: var(--blue-600); font-family: Arial,sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .16em; }
 .case-card h3 { margin: 0 0 14px; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(1.25rem,1.8vw,1.65rem); line-height: 1.5; }
 .case-card > p:not(.case-index) { margin: 0 0 28px; color: var(--muted); font-size: .9rem; }
-.case-link { display: inline-flex; align-self: flex-start; gap: 24px; margin-top: auto; padding: 0 0 6px; border: 0; border-bottom: 1px solid #8ea1b5; color: var(--navy-900); background: transparent; font-size: .78rem; font-weight: 700; cursor: pointer; }
+.case-link { display: inline-flex; min-height: 44px; align-items: center; align-self: flex-start; gap: 24px; margin-top: auto; padding: 8px 0; border: 0; border-bottom: 1px solid #8ea1b5; color: var(--navy-900); background: transparent; font-size: .78rem; font-weight: 700; cursor: pointer; }
 .case-link span { color: var(--blue-600); }
 .case-link:focus-visible { outline: 2px solid var(--blue-600); outline-offset: 5px; }
 
@@ -171,6 +179,7 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .contact-intro li { position: relative; padding: 9px 0 9px 24px; color: rgba(255,255,255,.82); border-bottom: 1px solid rgba(255,255,255,.12); }
 .contact-intro li::before { content: ""; position: absolute; top: 20px; left: 2px; width: 8px; height: 1px; background: var(--cyan-400); }
 .contact-intro .contact-closing { margin: 26px 0 0; color: #fff; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: 1.08rem; }
+.contact-closing a { display: inline-flex; min-height: 44px; align-items: center; }
 .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 24px; padding: clamp(28px,4vw,52px); color: var(--ink); background: #fff; }
 .form-row { display: flex; flex-direction: column; gap: 8px; }
 .form-row.full, .consent.full, .form-action.full { grid-column: 1 / -1; }
@@ -184,7 +193,7 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .form-row input[aria-invalid="true"], .form-row textarea[aria-invalid="true"] { border-color: #b42318; }
 .consent { display: flex; align-items: flex-start; gap: 10px; font-size: .82rem; }
 .consent input { width: 18px; height: 18px; margin-top: 4px; accent-color: var(--blue-600); }
-.text-button { padding: 0; border: 0; color: var(--blue-700); background: none; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.text-button { min-height: 44px; padding: 8px 0; border: 0; color: var(--blue-700); background: none; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .button-submit { width: 100%; color: #fff; background: var(--blue-700); }
 .button-submit:hover { background: var(--navy-900); }
 .form-status { min-height: 1.75em; margin: 10px 0 0; color: var(--blue-700); font-size: .83rem; }
@@ -194,8 +203,11 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .footer-grid { display: grid; grid-template-columns: 220px 1fr auto; gap: 50px; align-items: center; }
 .footer-brand { width: 148px; height: 94px; display: flex; align-items: center; }
 .footer-brand img { width: 100%; height: 100%; object-fit: contain; object-position: left center; }
-.footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 28px; font-size: .78rem; }
+.footer-navigation { min-width: 0; }
+.footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 24px; font-size: .76rem; }
+.footer nav a { display: inline-flex; min-height: 44px; align-items: center; }
 .footer nav a:hover { color: var(--cyan-400); }
+.footer-area { margin: 8px 0 0; color: rgba(255,255,255,.52); font-size: .7rem; text-align: center; }
 .copyright { margin: 0; color: rgba(255,255,255,.55); font-size: .72rem; }
 
 .case-detail-dialog { width: min(920px, calc(100% - 40px)); max-height: min(88vh, 900px); padding: 0; border: 0; border-radius: 4px; color: var(--ink); background: #fff; box-shadow: 0 20px 50px rgba(0,18,45,.12); opacity: 0; overflow-x: hidden; overflow-y: auto; transform: translateY(16px); transition: opacity .2s var(--ease), transform .2s var(--ease); }
@@ -235,7 +247,7 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
 .privacy-dialog::backdrop { background: rgba(0,10,25,.72); backdrop-filter: blur(4px); }
 .dialog-inner { position: relative; padding: clamp(32px,6vw,64px); }
 .dialog-inner h2 { margin: 0 0 25px; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: 2rem; }
-.dialog-close { position: absolute; top: 15px; right: 17px; width: 40px; height: 40px; border: 0; color: var(--ink); background: #edf2f7; cursor: pointer; font-size: 1.5rem; }
+.dialog-close { position: absolute; top: 15px; right: 17px; width: 44px; height: 44px; border: 0; color: var(--ink); background: #edf2f7; cursor: pointer; font-size: 1.5rem; }
 .dialog-note { color: var(--muted); font-size: .78rem; }
 
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .58s var(--ease), transform .58s var(--ease); }
@@ -278,6 +290,7 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
   .hero-copy { padding-top: 28px; }
   .hero h1 { font-size: clamp(3rem, 9vw, 4.2rem); }
   .mobile-title-break { display: block; }
+  .regional-intro-inner { grid-template-columns: 1fr; gap: 12px; }
   .service-layout, .case-layout, .about-grid, .message-grid, .company-grid, .contact-grid { grid-template-columns: 1fr; }
   .service-layout, .case-layout { gap: 48px; }
   .service-item { grid-template-columns: 48px 1fr auto; gap: 18px; }
@@ -325,7 +338,7 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
   .case-card { min-height: 0; }
   .case-detail-dialog { width: calc(100% - 16px); max-height: calc(100dvh - 16px); }
   .case-dialog-panel { padding: 24px 20px 28px; }
-  .case-dialog-close { top: 10px; width: 42px; height: 42px; margin: -10px -8px 0 14px; }
+  .case-dialog-close { top: 10px; width: 44px; height: 44px; margin: -10px -8px 0 14px; }
   .case-dialog-header { padding-right: 48px; padding-bottom: 28px; }
   .case-dialog-header h2 { margin-bottom: 12px; font-size: 1.75rem; }
   .case-dialog-lead { font-size: .98rem; line-height: 1.75; }
@@ -342,7 +355,7 @@ html.intro-running .brand-intro-lead { animation: intro-copy .8s 2.55s var(--eas
   .company-data > div { grid-template-columns: 90px 1fr; gap: 15px; }
   .contact-form { grid-template-columns: 1fr; gap: 23px; padding: 26px 20px; }
   .form-row.full, .consent.full, .form-action.full { grid-column: auto; }
-  .footer nav { flex-direction: column; }
+  .footer nav { flex-direction: column; align-items: center; }
   .dialog-inner h2 { font-size: 1.7rem; }
   .brand-intro { padding: 24px; }
   .brand-intro-logo { width: min(72vw, 280px); margin-bottom: 28px; }

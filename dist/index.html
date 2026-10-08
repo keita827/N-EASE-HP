@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>N-EASE｜山形の中小企業向け業務改善・DX・システム開発</title>
-  <meta name="description" content="N-EASEは山形県を中心に、中小企業の業務改善・DX・システム開発を支援します。Excel・紙・属人化した業務を整理し、現場に合ったシンプルな仕組みを構築します。">
+  <meta name="description" content="N-EASEは山形県東根市を拠点に、県内の中小企業の業務改善・DX・システム開発・AI活用を支援します。Excel・紙・属人化した業務を整理し、必要な仕組みを構築します。">
   <meta name="theme-color" content="#071c3b">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
@@ -29,18 +29,26 @@
           "@id": "https://n-ease.com/#organization",
           "name": "N-EASE",
           "url": "https://n-ease.com/",
-          "description": "山形県を中心に、中小企業の業務改善・DX・業務システム開発を支援",
-          "legalRepresentative": {
+          "description": "山形県東根市を拠点に、中小企業の業務改善・DX・IT活用・業務システム開発を支援",
+          "logo": "https://n-ease.com/assets/n-ease-logo-transparent.png",
+          "email": "office@n-ease.com",
+          "employee": {
             "@type": "Person",
-            "name": "阿部 桂太"
+            "name": "阿部 桂太",
+            "jobTitle": "代表"
           },
-          "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "山形県を中心に対応"
-          },
+          "areaServed": [
+            { "@type": "City", "name": "東根市" },
+            { "@type": "City", "name": "天童市" },
+            { "@type": "City", "name": "山形市" },
+            { "@type": "AdministrativeArea", "name": "山形県" }
+          ],
           "knowsAbout": [
-            "業務改善コンサルティング",
+            "業務改善",
+            "DX支援",
+            "IT活用・ITコンサルティング",
             "業務システム開発",
+            "AI活用",
             "システム導入支援",
             "運用・改善サポート"
           ]
@@ -158,6 +166,13 @@
       </div>
     </section>
 
+    <section class="regional-intro" aria-label="N-EASEの拠点と対応地域">
+      <div class="shell regional-intro-inner reveal">
+        <p class="regional-intro-label">YAMAGATA / HIGASHINE</p>
+        <p>N-EASEは山形県東根市を拠点に、東根市・天童市・山形市を中心とした山形県内の中小企業の、業務改善・DX・システム開発・AI活用を支援しています。</p>
+      </div>
+    </section>
+
     <section class="section service" id="service" aria-labelledby="service-title">
       <div class="shell service-layout">
         <header class="service-intro reveal">
@@ -170,7 +185,7 @@
             <p class="service-number">01</p>
             <div class="service-title-wrap">
               <p class="service-en">CONSULTING</p>
-              <h3>業務改善<br>コンサルティング</h3>
+              <h3><a class="service-title-link" href="business-improvement/">業務改善<br>コンサルティング</a></h3>
             </div>
             <p class="service-description">現状の業務を整理・分析し、ムダや二重作業、属人化などの課題を発見。よりシンプルに仕事が回る仕組みづくりを支援します。</p>
             <button class="service-link" type="button" data-service-open="service-01" aria-haspopup="dialog" aria-controls="service-01-dialog" aria-label="業務改善コンサルティングを詳しく見る">詳しく見る <span aria-hidden="true">→</span></button>
@@ -179,7 +194,7 @@
             <p class="service-number">02</p>
             <div class="service-title-wrap">
               <p class="service-en">DEVELOPMENT</p>
-              <h3>システム開発・<br>カスタマイズ</h3>
+              <h3><a class="service-title-link" href="system-development/">システム開発・<br>カスタマイズ</a></h3>
             </div>
             <p class="service-description">既存サービスでは対応しきれない業務に対して、企業ごとの実務に合わせたシステムを構築します。</p>
             <button class="service-link" type="button" data-service-open="service-02" aria-haspopup="dialog" aria-controls="service-02-dialog" aria-label="システム開発・カスタマイズを詳しく見る">詳しく見る <span aria-hidden="true">→</span></button>
@@ -290,7 +305,7 @@
           <div><dt>屋号</dt><dd>N-EASE</dd></div>
           <div><dt>代表</dt><dd>阿部 桂太</dd></div>
           <div><dt>事業内容</dt><dd>業務改善コンサルティング<br>業務システム開発<br>システム導入支援<br>運用・改善サポート</dd></div>
-          <div><dt>対応エリア</dt><dd>山形県を中心に対応</dd></div>
+          <div><dt>対応エリア</dt><dd>東根市・天童市・山形市を中心に、山形県内へ対応</dd></div>
         </dl>
       </div>
     </section>
@@ -351,9 +366,12 @@
       <a class="footer-brand" href="#home" aria-label="N-EASE ホーム">
         <img src="assets/n-ease-logo-transparent.png" width="456" height="278" loading="lazy" alt="N-EASE">
       </a>
-      <nav aria-label="フッターナビゲーション">
-        <a href="#home">HOME</a><a href="#about">私たちの想い</a><a href="#service">サービス</a><a href="one/">ONE</a><a href="#case-study">導入事例</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a>
-      </nav>
+      <div class="footer-navigation">
+        <nav aria-label="フッターナビゲーション">
+          <a href="#home">HOME</a><a href="business-improvement/">業務改善・DX・IT活用支援</a><a href="system-development/">業務システム開発</a><a href="one/">ONE</a><a href="#case-study">導入事例</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a>
+        </nav>
+        <p class="footer-area">対応エリア：東根市・天童市・山形市を中心に山形県内</p>
+      </div>
       <p class="copyright">© 2026 N-EASE</p>
     </div>
   </footer>
