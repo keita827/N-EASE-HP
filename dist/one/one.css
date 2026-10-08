@@ -1,0 +1,132 @@
+:root { --one-cyan:#18d9ef; --one-blue:#0877ee; --one-deep:#020e20; --one-panel:#071b36; }
+.one-page { background:#fff; }
+.one-header { background:rgba(3,15,33,.96); }
+.one-hero { min-height:100svh; padding:118px 0 90px; color:#fff; background:linear-gradient(122deg,#020d1e 0%,#061b39 72%,#082d58 72%); overflow:hidden; }
+.one-breadcrumb { display:flex; gap:12px; margin-bottom:clamp(45px,5vw,72px); color:rgba(255,255,255,.48); font-size:.75rem; letter-spacing:.06em; }
+.one-hero-copy { position:relative; z-index:2; width:min(660px,60%); }
+.one-overline { margin:0 0 17px; color:var(--one-cyan); font-size:.72rem; font-weight:700; letter-spacing:.2em; }
+.one-overline span { margin-left:14px; color:rgba(255,255,255,.42); }
+.one-wordmark { margin:0 0 30px; color:var(--one-cyan); font:700 clamp(1rem,1.6vw,1.35rem)/1 Arial,sans-serif; letter-spacing:.08em; }
+.one-wordmark span { color:#fff; }
+.one-hero h1 { margin:0; font-family:"Yu Mincho","Hiragino Mincho ProN",serif; font-size:clamp(3rem,5vw,5.25rem); font-weight:500; line-height:1.34; letter-spacing:-.04em; }
+.one-hero-lead { margin:28px 0 0; color:rgba(255,255,255,.76); font-size:clamp(1rem,1.45vw,1.2rem); line-height:1.9; }
+.one-hero-actions { display:flex; align-items:center; gap:30px; margin-top:35px; }
+.one-button { display:inline-flex; min-height:58px; align-items:center; justify-content:center; padding:14px 26px; border:1px solid transparent; font-size:.88rem; font-weight:700; letter-spacing:.03em; transition:transform .25s,background .25s,color .25s; }
+.one-button:hover { transform:translateY(-2px); }
+.one-button-light { color:var(--navy-950); background:#fff; }
+.one-button-light:hover { color:#fff; background:var(--one-blue); }
+.one-text-link { display:inline-flex; gap:15px; align-items:center; font-size:.84rem; font-weight:700; text-decoration:underline; text-decoration-color:var(--one-cyan); text-underline-offset:7px; }
+.one-text-link:hover { color:var(--one-cyan); }
+.one-hero-frame { position:relative; z-index:1; width:min(1030px,83vw); margin:75px 0 0 auto; padding:18px; border:1px solid rgba(255,255,255,.18); background:#04142b; box-shadow:0 28px 80px rgba(0,0,0,.28); }
+.one-hero-frame::before { content:""; position:absolute; z-index:-1; top:-150px; right:-24vw; width:70vw; height:650px; border-top:1px solid rgba(24,217,239,.18); transform:rotate(-16deg); }
+.one-frame-label { display:block; margin:0 0 12px; color:rgba(255,255,255,.46); font-size:.67rem; letter-spacing:.18em; }
+.one-hero-frame img { width:100%; border:1px solid rgba(255,255,255,.12); }
+.one-intro { padding:clamp(100px,12vw,170px) 0; }
+.one-intro-grid,.one-feature-layout,.one-philosophy-grid,.one-final-grid { display:grid; grid-template-columns:.86fr 1.14fr; gap:clamp(60px,10vw,145px); }
+.one-intro h2,.one-product h2,.one-features h2,.one-ux h2,.one-philosophy h2,.one-final h2 { margin:0; font-family:"Yu Mincho","Hiragino Mincho ProN",serif; font-size:clamp(2.2rem,4vw,4.25rem); font-weight:500; line-height:1.45; letter-spacing:-.03em; }
+.one-intro-copy { max-width:650px; }
+.one-intro-copy p { margin:0 0 23px; }
+.one-accent-copy { margin-top:40px!important; color:var(--blue-700); font-family:"Yu Mincho","Hiragino Mincho ProN",serif; font-size:clamp(1.2rem,2vw,1.6rem); font-weight:600; }
+.one-flow { list-style:none; display:grid; grid-template-columns:repeat(9,1fr); margin-top:85px; padding:0; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+.one-flow li { position:relative; padding:22px 8px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); text-align:center; font-size:.84rem; font-weight:700; }
+.one-flow li:not(:last-child)::after { content:""; position:absolute; z-index:2; top:50%; right:-5px; width:8px; height:8px; border-top:1px solid var(--blue-600); border-right:1px solid var(--blue-600); transform:translateY(-50%) rotate(45deg); background:#fff; }
+.one-product { padding:clamp(95px,11vw,155px) 0; color:#fff; background:var(--one-deep); }
+.one-product-heading { display:grid; grid-template-columns:1fr .7fr; gap:60px; align-items:end; margin-bottom:60px; }
+.one-product-heading > p { max-width:480px; margin:0; color:rgba(255,255,255,.6); }
+.one-showcase { position:relative; }
+.one-showcase-meta { display:grid; grid-template-columns:90px 1fr auto; gap:28px; align-items:center; padding:0 0 20px; }
+.one-showcase-meta > p { margin:0; color:rgba(255,255,255,.42); font-family:Georgia,serif; }
+.one-showcase-meta > p span { color:var(--one-cyan); font-size:1.45rem; }
+.one-showcase-meta > div:nth-child(2) { display:flex; gap:20px; align-items:baseline; }
+.one-showcase-meta strong { font-family:"Yu Mincho","Hiragino Mincho ProN",serif; font-size:1.25rem; }
+.one-showcase-meta span:not([data-one-current]) { color:rgba(255,255,255,.52); font-size:.82rem; }
+.one-showcase-arrows { display:flex; gap:8px; }
+.one-showcase-arrows button { width:44px; height:44px; border:1px solid rgba(255,255,255,.3); color:#fff; background:transparent; cursor:pointer; transition:border-color .2s,background .2s; }
+.one-showcase-arrows button:hover { border-color:var(--one-cyan); background:rgba(24,217,239,.09); }
+.one-screen-stage { position:relative; aspect-ratio:16/9; overflow:hidden; border:1px solid rgba(255,255,255,.18); background:#03152c; box-shadow:0 32px 80px rgba(0,0,0,.34); }
+.one-screen { position:absolute; inset:0; margin:0; opacity:0; transform:translateY(12px); transition:opacity .45s ease,transform .45s ease; pointer-events:none; }
+.one-screen.is-active { z-index:1; opacity:1; transform:none; pointer-events:auto; }
+.one-screen img { width:100%; height:100%; object-fit:cover; }
+.one-tab-wrap { overflow-x:auto; scrollbar-width:thin; scrollbar-color:#23527a transparent; }
+.one-tabs { min-width:max-content; display:flex; margin-top:22px; border-bottom:1px solid rgba(255,255,255,.18); }
+.one-tabs button { position:relative; min-width:100px; padding:14px 17px; border:0; color:rgba(255,255,255,.54); background:transparent; cursor:pointer; font-size:.78rem; transition:color .2s; }
+.one-tabs button::after { content:""; position:absolute; bottom:-1px; left:16px; right:16px; height:2px; background:var(--one-cyan); transform:scaleX(0); transition:transform .25s; }
+.one-tabs button:hover,.one-tabs button.is-active { color:#fff; }
+.one-tabs button.is-active::after { transform:scaleX(1); }
+.one-progress { height:2px; margin-top:12px; background:rgba(255,255,255,.08); overflow:hidden; }
+.one-progress span { display:block; width:0; height:100%; background:var(--one-cyan); }
+.one-showcase.is-playing .one-progress span { animation:one-progress 4.8s linear forwards; }
+@keyframes one-progress { to { width:100%; } }
+.one-features { padding:clamp(100px,12vw,170px) 0; }
+.one-feature-layout > header { position:sticky; top:125px; align-self:start; }
+.one-feature-layout > header > p:last-child { max-width:430px; margin-top:28px; color:var(--muted); }
+.one-feature-list { margin:0; border-top:1px solid var(--line); }
+.one-feature-list > div { display:grid; grid-template-columns:minmax(240px,.8fr) 1.2fr; gap:34px; padding:35px 0; border-bottom:1px solid var(--line); }
+.one-feature-list dt { color:var(--navy-900); font-family:"Yu Mincho","Hiragino Mincho ProN",serif; font-size:1.15rem; font-weight:700; }
+.one-feature-list dt span { display:inline-block; min-width:48px; color:var(--blue-600); font-family:Georgia,serif; font-weight:400; }
+.one-feature-list dd { margin:0; color:var(--muted); font-size:.93rem; }
+.one-ux { padding:clamp(90px,10vw,145px) 0; background:#eef5fa; }
+.one-ux-heading { display:grid; grid-template-columns:1fr .7fr; gap:70px; align-items:end; margin-bottom:70px; }
+.one-ux-heading .eyebrow { grid-column:1/-1; }
+.one-ux-heading > p:last-child { color:var(--muted); }
+.one-ux-grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #afc2d5; border-left:1px solid #afc2d5; }
+.one-ux-grid article { min-height:250px; padding:34px; border-right:1px solid #afc2d5; border-bottom:1px solid #afc2d5; }
+.one-ux-grid span { color:var(--blue-600); font-family:Georgia,serif; }
+.one-ux-grid h3 { margin:44px 0 15px; font-family:"Yu Mincho","Hiragino Mincho ProN",serif; font-size:1.35rem; }
+.one-ux-grid p { margin:0; color:var(--muted); font-size:.9rem; }
+.one-philosophy { padding:clamp(105px,13vw,180px) 0; color:#fff; background:var(--navy-900); }
+.one-philosophy-copy { color:rgba(255,255,255,.74); }
+.one-philosophy-copy > p { margin:0 0 25px; }
+.one-philosophy blockquote { margin:48px 0; padding:30px 0 30px 28px; border-top:1px solid rgba(255,255,255,.25); border-bottom:1px solid rgba(255,255,255,.25); border-left:3px solid var(--one-cyan); color:#fff; font-family:"Yu Mincho","Hiragino Mincho ProN",serif; font-size:clamp(1.2rem,2vw,1.55rem); }
+.one-text-link.light { color:#fff; }
+.one-final { padding:clamp(95px,11vw,155px) 0; color:#fff; background:var(--one-deep); }
+.one-final-grid { align-items:end; }
+.one-final-grid > div:last-child p { color:rgba(255,255,255,.68); }
+
+.one-teaser { padding:clamp(90px,10vw,145px) 0; color:#fff; background:var(--one-deep); overflow:hidden; }
+.one-teaser-grid { display:grid; grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr); gap:clamp(50px,8vw,115px); align-items:center; }
+.one-teaser-copy h2 { margin:0; font-family:"Yu Mincho","Hiragino Mincho ProN",serif; font-size:clamp(2.4rem,4vw,4.1rem); font-weight:500; line-height:1.4; }
+.one-teaser-copy > p:not(.eyebrow):not(.one-wordmark) { margin:25px 0 0; color:rgba(255,255,255,.68); }
+.one-teaser-actions { display:flex; gap:25px; align-items:center; margin-top:34px; }
+.one-teaser .one-showcase-meta { grid-template-columns:64px 1fr; }
+.one-teaser .one-showcase-arrows { display:none; }
+.one-teaser .one-showcase-meta > div:nth-child(2) { display:block; }
+.one-teaser .one-showcase-meta strong { display:block; }
+.one-teaser .one-screen-stage { box-shadow:none; }
+.one-teaser .one-tabs button { min-width:118px; }
+
+@media (max-width:900px) {
+  .one-hero-copy { width:80%; }
+  .one-intro-grid,.one-feature-layout,.one-philosophy-grid,.one-final-grid,.one-teaser-grid { grid-template-columns:1fr; }
+  .one-flow { grid-template-columns:repeat(3,1fr); }
+  .one-product-heading,.one-ux-heading { grid-template-columns:1fr; gap:24px; }
+  .one-ux-heading .eyebrow { grid-column:auto; }
+  .one-feature-layout > header { position:static; }
+  .one-hero-frame { width:100%; margin-top:60px; }
+}
+@media (max-width:620px) {
+  .one-hero { min-height:0; padding:102px 0 75px; }
+  .one-breadcrumb { margin-bottom:40px; }
+  .one-hero-copy { width:100%; }
+  .one-hero h1 { font-size:2.65rem; }
+  .one-hero-lead br { display:none; }
+  .one-hero-actions,.one-teaser-actions { align-items:stretch; flex-direction:column; }
+  .one-button { width:100%; }
+  .one-hero-frame { padding:8px; }
+  .one-frame-label { margin:2px 3px 8px; }
+  .one-flow { grid-template-columns:repeat(2,1fr); margin-top:55px; }
+  .one-flow li::after { display:none; }
+  .one-product-heading { margin-bottom:38px; }
+  .one-showcase-meta { grid-template-columns:62px 1fr; gap:14px; }
+  .one-showcase-meta > div:nth-child(2) { display:block; }
+  .one-showcase-meta strong { display:block; }
+  .one-showcase-arrows { grid-column:1/-1; justify-content:flex-end; }
+  .one-feature-list > div { grid-template-columns:1fr; gap:12px; padding:28px 0; }
+  .one-ux-grid { grid-template-columns:1fr; }
+  .one-ux-grid article { min-height:0; }
+  .one-teaser .one-showcase-meta { grid-template-columns:52px 1fr; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .one-screen { transition:none; transform:none; }
+  .one-progress { display:none; }
+}
