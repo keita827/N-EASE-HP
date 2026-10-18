@@ -23,7 +23,7 @@
       document.documentElement.classList.remove('intro-pending', 'intro-running');
       intro.remove();
       if (window.__neaseIntroFailSafe) window.clearTimeout(window.__neaseIntroFailSafe);
-    }, 5400);
+    }, 7100);
   } else {
     intro?.remove();
     document.documentElement.classList.remove('intro-pending', 'intro-running');
